@@ -12,6 +12,6 @@ class Todoseeder extends Seeder
     public function run()
     {
         // App\Todo::truncate(); 
-        factory(App\Todo::class, 10)->create();
+        factory(App\Todo::class, 5)->create();
     }
 }
