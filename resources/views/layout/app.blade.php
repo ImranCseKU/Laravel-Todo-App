@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/todos">Todos <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/create-todo">Add Todo</a>
+                    <a class="nav-link" href="/create/todo">Add Todo</a>
                 </li>
             </ul> 
         </div>

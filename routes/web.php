@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todos', 'TodoController@index');
-Route::get('/todos/{todo}', 'TodoController@show');
-Route::get('/create-todo', 'TodoController@create');
+Route::get('todos', 'TodoController@index');
+Route::get('create/todo', 'TodoController@create');
+Route::get('todos/{todo}', 'TodoController@show');
+Route::get('todos/{todo}/edit', 'TodoController@edit');
 
-Route::post('store-todo', 'TodoController@store');
+Route::post('todos/store', 'TodoController@store');
+Route::post('todos/{todo}/update', 'TodoController@update');

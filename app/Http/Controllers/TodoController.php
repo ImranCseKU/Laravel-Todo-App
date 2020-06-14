@@ -27,6 +27,7 @@ class TodoController extends Controller
 
     public function create(){
         return view('todos.create');
+
     }
 
     public function store(){
@@ -44,6 +45,7 @@ class TodoController extends Controller
         // Todo::create($data);     //execute if and only if the form field and database tabel field matched
 
         $todo = new Todo();
+
         $todo->name = $data['name'];
         $todo->description = $data['description'];
         $todo->completed = false;
@@ -51,6 +53,31 @@ class TodoController extends Controller
         $todo->save();
 
         return redirect()->to('/todos');
+
+    }
+
+
+    public function edit( $todoId){
+        $todo =Todo::find($todoId);
+        return view('todos.edit')->with('todo', $todo);
+    }
+
+    public function update( $todoId){
+        $this->validate( request(), [
+            'name'=> 'required|max:40',
+            'description'=> 'required',
+        ]);
+
+        $data = request()->except('_token');
+
+        $todo = Todo::find($todoId);
+
+        $todo->name = $data['name'];
+        $todo->description = $data['description'];
+
+        $todo->save();
+
+        return redirect('/todos');
 
     }
 }
