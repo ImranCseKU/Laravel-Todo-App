@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
+@extends('layout.app')
 
-    <title>Todo Item</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="text-center my-5">{{$todo->name}}</h1>
+@section('title')
+    single todo:{{ $todo->name }}
+@endsection
 
-                <div class="card">
-                    <div class="card-header">Details</div>
+@section('content')
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center my-5">{{$todo->name}}</h1>
 
-                    <div class="card-body">
-                        {{$todo->description}}
-                    </div>
+            <div class="card">
+                <div class="card-header">Details</div>
+
+                <div class="card-body">
+                    {{$todo->description}}
                 </div>
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+@endsection
