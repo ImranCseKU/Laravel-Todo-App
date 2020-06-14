@@ -31,6 +31,14 @@ class TodoController extends Controller
 
     public function store(){
         
+        //validate data
+        $this->validate( request(), [
+            'name'=> 'required|max:40',
+            'description'=> 'required',
+        ]);
+
+
+
         $data = request()->except('_token');
 
         // Todo::create($data);     //execute if and only if the form field and database tabel field matched
